@@ -11,7 +11,6 @@ from utils.plots import Annotator, colors
 try:
     import clearml
     from clearml import Dataset, Task
-
     assert hasattr(clearml, '__version__')  # verify package import not local dir
 except (ImportError, AssertionError):
     clearml = None
