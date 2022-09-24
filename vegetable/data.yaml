@@ -1,0 +1,5 @@
+train: ../vegetable/train/images
+val: ../vegetable/valid/images
+
+nc: 1
+names: ['vegetalbe']
