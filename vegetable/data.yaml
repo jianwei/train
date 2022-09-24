@@ -1,5 +1,5 @@
 train: ../vegetable/train/images
 val: ../vegetable/valid/images
 
-nc: 1
-names: ['vegetable']
+nc: 2
+names: ['vegetable','road']
