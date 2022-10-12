@@ -1,0 +1,26 @@
+<annotation>
+	<folder>posdata_source</folder>
+	<filename>IMG_20221011_094254.jpg</filename>
+	<path>/Users/carlos/Desktop/train/opencv/posdata_source/IMG_20221011_094254.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3648</width>
+		<height>2736</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>box</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1337</xmin>
+			<ymin>1216</ymin>
+			<xmax>2245</xmax>
+			<ymax>2236</ymax>
+		</bndbox>
+	</object>
+</annotation>
