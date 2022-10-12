@@ -18,10 +18,11 @@ def format_img(floder,img_type):
             new_file_name = str(j+1)+".jpg"
             shutil.copyfile(file_name,floder+"/"+new_file_name)
             points_str =floder+"/"+new_file_name+" "+str(len(points)) +" "
+            # print("points_str-1:",points_str)
             for item in points:
                 points_str += " ".join(item)
                 points_str += "    "
-            # print("points_str:",points_str)
+            print("item:",points_str)
             txt=open(output_file,mode='a')
             txt.write(points_str+'\n')
             txt.close()
@@ -55,7 +56,7 @@ def get_object_item(data):
 
 
 if __name__ == '__main__':
-    format_img("./posdata",1)
+    format_img("posdata",1)
     # label = get_label("./posdata/IMG_20221011_094104.xml")
     # print(label)
     pass
