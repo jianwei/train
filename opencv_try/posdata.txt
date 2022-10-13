@@ -1,0 +1,1 @@
+/Users/carlos/Desktop/train/opencv/posdata/3.jpg  1  657 236 1563 1877
