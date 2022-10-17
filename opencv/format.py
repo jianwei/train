@@ -77,7 +77,8 @@ class BatchDoneImage():
     
     def cp(self,floder):
         target_dir ="pos_data" if floder.find("pos") !=-1 else "neg_data"
-        shutil.rmtree(target_dir)
+        if os.path.exists(target_dir):
+            shutil.rmtree(target_dir)
         shutil.copytree(floder, target_dir)
         return target_dir
 
