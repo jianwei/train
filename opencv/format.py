@@ -1,5 +1,5 @@
 import cv2
-import os,numpy
+import os,numpy,shutil
 
 
 class BatchDoneImage():
@@ -69,10 +69,17 @@ class BatchDoneImage():
     
 
     def format(self,folder):
+        folder = self.cp(folder)
         self.convertjpg(folder)
         # self.spin(folder,10)
         self.rename(folder)
         self.writetxt(folder)
+    
+    def cp(self,floder):
+        target_dir ="pos_data" if floder.find("pos") !=-1 else "neg_data"
+        shutil.rmtree(target_dir)
+        shutil.copytree(floder, target_dir)
+        return target_dir
 
     
     "path是图片路径,执行后会在同一目录下生成五张亮度依次递增的图片"
