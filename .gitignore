@@ -6,3 +6,9 @@
 .idea/*
 yolov5/runs/*
 *.cache
+opencv/neg_data/*
+opencv/pos_data/*
+opencv/xml/*
+*.txt
+opencv/pos.txt
+opencv/pos.vec
