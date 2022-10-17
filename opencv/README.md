@@ -28,9 +28,4 @@ opencv_traincascade：
 -baseFormatSave
 仅在使用Haar特征时有效，如果指定，级联分类器将以老格式存储
 
-
-
-numPos+（numStages-1）*numPos*（1-minHitRate）<=正样本
-正负样本比例1:2.5~1:3，曾经有篇文章中说，为了减小false positive ，可以加大负样本数目。
-
-
+正负样本比例1:2.5~1:3，为了减小false positive ，可以加大负样本数目。
