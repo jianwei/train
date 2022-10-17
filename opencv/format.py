@@ -71,15 +71,15 @@ class BatchDoneImage():
     def format(self,folder):
         folder = self.cp(folder)
         self.convertjpg(folder)
-        # self.spin(folder,10)
+        self.spin(folder,10)
         self.rename(folder)
         self.writetxt(folder)
     
-    def cp(self,floder):
-        target_dir ="pos_data" if floder.find("pos") !=-1 else "neg_data"
+    def cp(self,folder):
+        target_dir ="pos_data" if folder.find("pos") !=-1 else "neg_data"
         if os.path.exists(target_dir):
             shutil.rmtree(target_dir)
-        shutil.copytree(floder, target_dir)
+        shutil.copytree(folder, target_dir)
         return target_dir
 
     
@@ -112,6 +112,10 @@ class BatchDoneImage():
 
 if __name__ == '__main__':
     print(cv2.__version__)
+    if os.path.exists("./pos.txt"):
+        os.remove("./pos.txt")
+    if os.path.exists("./neg.txt"):
+        os.remove("./neg.txt")
     demo = BatchDoneImage()
     demo.format("./pos")
     demo.format("./neg")
