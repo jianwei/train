@@ -2,7 +2,7 @@ python3 format.py
 
 ./opencv_createsamples -vec pos.vec  -info pos.txt -num 828 -w 40 -h 40
 
-./opencv_traincascade -data xml -vec pos.vec -bg neg.txt -numPos 800 -numNeg 1000 -numStages 32 -w 40 -h 40 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -mode ALL
+./opencv_traincascade -data xml -vec pos.vec -bg neg.txt -numPos 800 -numNeg 100 -numStages 32 -w 40 -h 40 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -mode ALL
 
 
 git fetch --all &&  git reset --hard origin/main && git pull
@@ -29,3 +29,25 @@ opencv_traincascade：
 仅在使用Haar特征时有效，如果指定，级联分类器将以老格式存储
 
 正负样本比例1:2.5~1:3，为了减小false positive ，可以加大负样本数目。
+
+
+
+cmake \
+-D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D WITH_TBB=ON \
+-D BUILD_NEW_PYTHON_SUPPORT=ON \
+-D WITH_V4L=ON \
+-D INSTALL_C_EXAMPLES=ON \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D BUILD_EXAMPLES=ON \
+-D WITH_QT=ON \
+-D WITH_OPENGL=ON \
+-D WITH_CUDA=ON \
+-D WITH_CUBLAS=ON \
+-D OPENCV_DNN_CUDA=ON \
+-D CUDA_NVCC_FLAGS=--expt-relaxed-constexpr \
+-D WITH_CUDNN=ON ..
+
+
+sudo make -j6
