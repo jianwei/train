@@ -70,7 +70,7 @@ class BatchDoneImage():
 
     def format(self,folder):
         folder = self.cp(folder)
-        self.convertjpg(folder,width=1024,height=600)
+        self.convertjpg(folder,width=102,height=60)
         # self.spin(folder,10)
         self.rename(folder)
         self.writetxt(folder)

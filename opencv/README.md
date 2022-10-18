@@ -1,12 +1,11 @@
 python3 format.py
 
-./opencv_createsamples -vec pos.vec  -info pos.txt -num 23 -w 1024 -h 600
+./opencv_createsamples -vec pos.vec  -info pos.txt -num 23 -w 102 -h 60
 
 ./opencv_traincascade -data xml -vec pos.vec -bg neg.txt -numPos 7 -numNeg 100 -numStages 3 -w 1024 -h 600 -minHitRate 0.999 -maxFalseAlarmRate 0.45 -mode ALL  
 
 
 git fetch --all &&  git reset --hard origin/main && git pull
-
 
 opencv_traincascade：
 -data：指定保存训练结果的文件夹；
@@ -29,10 +28,7 @@ opencv_traincascade：
 
 -mode:使用Haar-like特征时使用，可选BASIC、CORE或者ALL；(ALL使用垂直和45度角旋转特征。)
 
-
 正负样本比例1:2.5~1:3，为了减小false positive ，可以加大负样本数目。
-
-
 
 cmake \
 -D CMAKE_BUILD_TYPE=RELEASE \
@@ -40,16 +36,10 @@ cmake \
 -D WITH_TBB=ON \
 -D BUILD_NEW_PYTHON_SUPPORT=ON \
 -D WITH_V4L=ON \
--D INSTALL_C_EXAMPLES=ON \
--D INSTALL_PYTHON_EXAMPLES=ON \
--D BUILD_EXAMPLES=ON \
 -D WITH_QT=ON \
 -D WITH_OPENGL=ON \
 -D WITH_CUDA=ON \
--D WITH_CUBLAS=ON \
--D OPENCV_DNN_CUDA=ON \
 -D CUDA_NVCC_FLAGS=--expt-relaxed-constexpr \
 -D WITH_CUDNN=ON ..
 
-
-sudo make -j6
+sudo make -j8
