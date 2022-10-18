@@ -8,7 +8,7 @@ import time
 # 全局变量
 VIDEO_PATH = 'videos/neg.mp4'  # 视频地址
 EXTRACT_FOLDER = 'neg'  # 存放帧图片的位置
-EXTRACT_FREQUENCY = 3  # 帧提取频率
+EXTRACT_FREQUENCY = 1  # 帧提取频率
 
 # 主操作
 def extract_frames(video_path, dst_folder, index):
