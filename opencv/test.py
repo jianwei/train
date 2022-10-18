@@ -1,7 +1,7 @@
 #coding:utf-8
 import cv2 
 import time
-    
+
 # 识别电脑摄像头并打开
 cap = cv2.VideoCapture(2)
 
