@@ -63,7 +63,7 @@ class BatchDoneImage():
                 flie_name = "./pos.txt" if not folder.find("pos") == -1 else "neg.txt"
                 with open(flie_name,"a") as f:
                     if (not folder.find("pos") == -1):
-                        f.write(path+' 1'+' 0'+' 0'+' 40'+' 40'+'\n')
+                        f.write(path+' 1'+' 0'+' 0'+' 80'+' 80'+'\n')
                     else:
                         f.write(path+'\n')
     
