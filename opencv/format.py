@@ -52,7 +52,8 @@ class BatchDoneImage():
             if(not path.find(".jpg")==-1):
                 img = cv2.imread(path)
                 resized = cv2.resize(img, (width, height), interpolation=cv2.INTER_AREA)
-                cv2.imwrite(path,resized)
+                gray=cv2.cvtColor(resized,cv2.COLOR_BGR2GRAY) 
+                cv2.imwrite(path,gray)
     
 
     def writetxt(self,folder):
