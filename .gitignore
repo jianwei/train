@@ -11,3 +11,4 @@ opencv/xml/*
 *.txt
 opencv/pos.txt
 opencv/pos.vec
+yolov5_rknn/runs/*
