@@ -67,12 +67,12 @@ def train(hyp, opt, device, tb_writer=None):
     # Logging- Doing this before checking the dataset. Might update data_dict
     loggers = {'wandb': None}  # loggers dict
     if rank in [-1, 0]:
-        print("oooooooooo----------------------------------------------------------------------------------")
+        # print("oooooooooo----------------------------------------------------------------------------------")
         opt.hyp = hyp  # add hyperparameters
         run_id = torch.load(weights).get('wandb_id') if weights.endswith('.pt') and os.path.isfile(weights) else None
         wandb_logger = WandbLogger(opt, Path(opt.save_dir).stem, run_id, data_dict)
         loggers['wandb'] = wandb_logger.wandb
-        print("wandb_logger.wandb:",wandb_logger.wandb)
+        # print("wandb_logger.wandb:",wandb_logger.wandb)
         data_dict = wandb_logger.data_dict
         if wandb_logger.wandb:
             weights, epochs, hyp = opt.weights, opt.epochs, opt.hyp  # WandbLogger might update weights, epochs if resuming
@@ -209,7 +209,7 @@ def train(hyp, opt, device, tb_writer=None):
             # cf = torch.bincount(c.long(), minlength=nc) + 1.  # frequency
             # model._initialize_biases(cf.to(device))
             if plots:
-                print("labels:{}, names:{}, save_dir:{}, loggers:{}".format(labels, names, save_dir, loggers))
+                # print("labels:{}, names:{}, save_dir:{}, loggers:{}".format(labels, names, save_dir, loggers))
                 plot_labels(labels, names, save_dir, loggers)
 
                 if tb_writer:
