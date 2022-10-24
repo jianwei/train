@@ -2,7 +2,7 @@ python3 format.py
 
 ./opencv_createsamples -vec pos.vec  -info pos.txt -num 23 -w 80 -h 80
 
-./opencv_traincascade -data xml -vec pos.vec -bg neg.txt -numPos 7 -numNeg 300 -numStages 3 -w 80 -h 80 -minHitRate 0.999 -maxFalseAlarmRate 0.45 -mode ALL  
+./opencv_traincascade -data xml -vec pos.vec -bg neg.txt -numPos 4 -numNeg 500 -numStages 5 -w 80 -h 80 -minHitRate 0.999 -maxFalseAlarmRate 0.45 -mode ALL  
 
 
 git fetch --all &&  git reset --hard origin/main && git pull
