@@ -4,7 +4,7 @@
 
 环境要求：python version >= 3.6
 
-模型训练：python3 train.py
+模型训练：python3 train.py --device 0
 
 模型导出：python3 models/export.py --rknn_mode
 
