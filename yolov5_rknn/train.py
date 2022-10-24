@@ -67,10 +67,12 @@ def train(hyp, opt, device, tb_writer=None):
     # Logging- Doing this before checking the dataset. Might update data_dict
     loggers = {'wandb': None}  # loggers dict
     if rank in [-1, 0]:
+        print("oooooooooo----------------------------------------------------------------------------------")
         opt.hyp = hyp  # add hyperparameters
         run_id = torch.load(weights).get('wandb_id') if weights.endswith('.pt') and os.path.isfile(weights) else None
         wandb_logger = WandbLogger(opt, Path(opt.save_dir).stem, run_id, data_dict)
         loggers['wandb'] = wandb_logger.wandb
+        print("wandb_logger.wandb:",wandb_logger.wandb)
         data_dict = wandb_logger.data_dict
         if wandb_logger.wandb:
             weights, epochs, hyp = opt.weights, opt.epochs, opt.hyp  # WandbLogger might update weights, epochs if resuming
@@ -207,7 +209,9 @@ def train(hyp, opt, device, tb_writer=None):
             # cf = torch.bincount(c.long(), minlength=nc) + 1.  # frequency
             # model._initialize_biases(cf.to(device))
             if plots:
+                print("labels:{}, names:{}, save_dir:{}, loggers:{}".format(labels, names, save_dir, loggers))
                 plot_labels(labels, names, save_dir, loggers)
+
                 if tb_writer:
                     tb_writer.add_histogram('classes', c, 0)
 
@@ -451,6 +455,12 @@ def train(hyp, opt, device, tb_writer=None):
 
 
 if __name__ == '__main__':
+    if os.path.isfile("../data/train/labels.cache"):
+        os.remove("../data/train/labels.cache")
+    if os.path.isfile("../data/valid/labels.cache"):
+        os.remove("../data/valid/labels.cache") 
+    # import sys
+    # sys.exit()
     parser = argparse.ArgumentParser()
     # parser.add_argument('--weights', type=str, default='weights/yolov5m.pt', help='initial weights path')
     # parser.add_argument('--cfg', type=str, default='models/yolov5m.yaml', help='model.yaml path')
