@@ -21,7 +21,7 @@ from utils.torch_utils import select_device
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default=r'/home/tuniu/train/yolov5_rknn/runs/train/exp25/weights/best.pt', help='weights path')  # from yolov5/models/
+    parser.add_argument('--weights', type=str, default=r'/home/tuniu/train/yolov5_rknn/runs/train/exp26/weights/best.pt', help='weights path')  # from yolov5/models/
     parser.add_argument('--img-size', nargs='+', type=int, default=[640, 640], help='image size')  # height, width
     parser.add_argument('--batch-size', type=int, default=1, help='batch size')
     parser.add_argument('--dynamic', action='store_true', help='dynamic ONNX axes')
@@ -155,7 +155,8 @@ if __name__ == '__main__':
         print('\nStarting ONNX export with onnx %s...' % onnx.__version__)
         f = opt.weights.replace('.pt', '.onnx')  # filename
         torch.onnx.export(model, img, f, verbose=False, opset_version=10, input_names=['images'],
-                          output_names=['classes', 'boxes'] if y is None else ['output'],
+                        #   output_names=['classes', 'boxes'] if y is None else ['output'],
+                          output_names=['out378', 'out439', 'out500'],
                           dynamic_axes={'images': {0: 'batch', 2: 'height', 3: 'width'},  # size(1,3,640,640)
                                         'output': {0: 'batch', 2: 'y', 3: 'x'}} if opt.dynamic else None)
 
