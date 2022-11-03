@@ -455,10 +455,10 @@ def train(hyp, opt, device, tb_writer=None):
 
 
 if __name__ == '__main__':
-    if os.path.isfile("../data/train/labels.cache"):
-        os.remove("../data/train/labels.cache")
-    if os.path.isfile("../data/valid/labels.cache"):
-        os.remove("../data/valid/labels.cache") 
+    if os.path.isfile("../chives_data/train/labels.cache"):
+        os.remove("../chives_data/train/labels.cache")
+    if os.path.isfile("../chives_data/valid/labels.cache"):
+        os.remove("../chives_data/valid/labels.cache") 
     # import sys
     # sys.exit()
     parser = argparse.ArgumentParser()
