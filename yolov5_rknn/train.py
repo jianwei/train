@@ -20,6 +20,7 @@ from torch.cuda import amp
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
+import datetime
 
 import test  # import test.py to get mAP after each epoch
 from models.experimental import attempt_load
@@ -455,6 +456,8 @@ def train(hyp, opt, device, tb_writer=None):
 
 
 if __name__ == '__main__':
+    curr_time = datetime.datetime.now()
+    print("begin:",curr_time)
     if os.path.isfile("../chives_data/train/labels.cache"):
         os.remove("../chives_data/train/labels.cache")
     if os.path.isfile("../chives_data/valid/labels.cache"):
@@ -640,5 +643,7 @@ if __name__ == '__main__':
 
         # Plot results
         plot_evolution(yaml_file)
+        curr_time = datetime.datetime.now()
+        print("end:",curr_time)
         print(f'Hyperparameter evolution complete. Best results saved as: {yaml_file}\n'
               f'Command to train a new model with these hyperparameters: $ python train.py --hyp {yaml_file}')
