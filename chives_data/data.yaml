@@ -1,0 +1,5 @@
+train: ../chives_data/train/images
+val: ../chives_data/valid/images
+
+nc: 1
+names: ['chives']
