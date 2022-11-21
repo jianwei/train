@@ -1,0 +1,5 @@
+train: ../corn_data/train/images
+val: ../corn_data/valid/images
+
+nc: 1
+names: ['corn']
