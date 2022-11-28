@@ -458,10 +458,10 @@ def train(hyp, opt, device, tb_writer=None):
 if __name__ == '__main__':
     curr_time = datetime.datetime.now()
     print("begin:",curr_time)
-    if os.path.isfile("../chives_data/train/labels.cache"):
-        os.remove("../chives_data/train/labels.cache")
-    if os.path.isfile("../chives_data/valid/labels.cache"):
-        os.remove("../chives_data/valid/labels.cache") 
+    if os.path.isfile("../corn_data/train/labels.cache"):
+        os.remove("../corn_data/train/labels.cache")
+    if os.path.isfile("../corn_data/valid/labels.cache"):
+        os.remove("../corn_data/valid/labels.cache") 
     # import sys
     # sys.exit()
     parser = argparse.ArgumentParser()
@@ -475,12 +475,10 @@ if __name__ == '__main__':
     
     parser.add_argument('--weights', type=str, default='weights/yolov5s.pt', help='initial weights path')
     parser.add_argument('--cfg', type=str, default='models/yolov5s.yaml', help='model.yaml path')
-    parser.add_argument('--data', type=str, default='../chives_data/data.yaml', help='dataset.yaml path')
+    parser.add_argument('--data', type=str, default='../corn_data/data.yaml', help='dataset.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.scratch.yaml', help='hyperparameters path')
-    parser.add_argument('--epochs', type=int, default=1000)
+    parser.add_argument('--epochs', type=int, default=300)
     parser.add_argument('--batch-size', type=int, default=16, help='total batch size for all GPUs, -1 for autobatch')
-
-
 
 
 
